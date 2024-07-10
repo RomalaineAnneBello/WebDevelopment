@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUP Office/Cashiers Department</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('pupcashier1.png'); /* Set pupcashier.png as the background of the whole website */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            position: relative;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-box {
+            width: 80%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: transparent; /* Make background transparent */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-box::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)); /* Gradient from whitesmoke to whitesmoke */
+            z-index: -1; /* Place the pseudo-element behind other content */
+            border-radius: 20px;
+        }
+        .logo {
+            width: 100px; /* Adjust size as needed */
+            margin-bottom: 20px;
+        }
+        .department {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background: linear-gradient(to bottom, whitesmoke, whitesmoke); /* Gradient from whitesmoke to whitesmoke */
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="pup_logo.png" alt="PUP Logo" class="logo"> <!-- Replace 'pup_logo.png' with your actual logo file -->
+            <div class="department">PUP Office/Cashiers Department</div>
+            <form action="FORM.html" method="post">
+                <input type="text" name="username" placeholder="Account Name" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <label for="agree">I agree to the <a href="https://www.pup.edu.ph/terms/" target="_blank">terms</a> and <a href="https://www.pup.edu.ph/privacy/" target="_blank">conditions</a></label>
+                <input type="checkbox" id="agree" name="agree" required>
+                <input type="submit" value="Sign In">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

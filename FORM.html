@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PUP Fund Management Office/Cashiers Department Form</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #8b0000);
+    color: #8b0000; /* Changed to dark red */
+    margin: 0;
+    padding: 50px 0 0 0; /* Add top padding to prevent content from being hidden behind the fixed navbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+    .navbar {
+    overflow: hidden;
+    background: linear-gradient(to right, #ffcccc, #8b0000); /* Adjust gradient colors */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between; /* Distribute items evenly */
+    align-items: center; /* Vertically align items */
+    position: fixed; /* Make the navbar fixed */
+    top: 0; /* Align it to the top */
+    width: 100%; /* Ensure it spans the full width */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+
+    .navbar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 25px;
+    transition: background-color 0.6s;
+    margin-right: 10px; /* Add margin-right for spacing */
+}
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .navbar .logo {
+        float: left;
+        padding-right: 20px;
+    }
+
+    .navbar .title {
+        float: left;
+        line-height: 40px;
+         flex-grow: 1;
+    }
+
+    .navbar .title h3 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .navbar .subtitle {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .navbar a:nth-child(3),
+    .navbar a:nth-child(4) {
+        margin-right: 10px; /* Add margin between buttons */
+        background: linear-gradient(to right, #ff3333, #cc0000); /* Red gradient */
+    }
+
+    .navbar a:nth-child(3):hover,
+    .navbar a:nth-child(4):hover {
+        background: linear-gradient(to right, #ff6666, #990000); /* Hover gradient */
+    }
+    .navbar a:last-child {
+    margin-right: 20px; /* Add extra space for the last item */
+}
+
+    h2 {
+    color: #8b0000; /* Changed to dark red */
+    text-align: center;
+    margin-top: 70px; /* Add margin-top to ensure it is not covered by the navbar */
+}
+
+    .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    form {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-weight: bold;
+        color: #8b0000; /* Changed to dark red */
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #8b0000; /* Changed to dark red */
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"],
+    .btn {
+        width: 100%;
+        background-color: #8b0000; /* Changed to dark red */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover,
+    .btn:hover {
+        background-color: #6b0000; /* Changed to darker red */
+    }
+
+    .error {
+        color: #8b0000; /* Changed to dark red */
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .form-column {
+        width: 48%; /* Adjust as needed */
+    }
+
+    .tuition-fees-box {
+        background-color: #f9f9f9;
+        border: 1px solid #8b0000; /* Changed to dark red */
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        text-transform: capitalize; /* Convert to sentence case */
+    }
+
+    .tuition-fees-label {
+        font-weight: bold;
+        color: #8b0000; /* Changed to dark red */
+        margin-bottom: 5px;
+    }
+
+    .tuition-fees-options {
+        display: flex;
+        align-items: center;
+    }
+
+    .tuition-fees-checkbox {
+        margin-right: 10px;
+    }
+
+    .payment-option {
+        color: #8b0000; /* Changed to dark red */
+    }
+
+    #receipt {
+        display: none;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+    border: 2px solid #8b0000; /* Changed to dark red */
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px; /* Add this line */
+    background-color: #fff; /* Changed to white */
+    }
+
+    #receipt h3 {
+        color: #8b0000; /* Changed to dark red */
+        text-align: left;
+    }
+
+    #receipt p {
+        margin: 5px 0;
+        text-align: left;
+    }
+
+    #exitButton {
+        display: block;
+        margin: 0 auto;
+        background-color: #8b0000; /* Changed to dark red */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #exitButton:hover {
+        background-color: #6b0000; /* Changed to darker red */
+    }
+
+    #clearAllButton {
+        width: 100%;
+        background-color: #8b0000; /* Changed to dark red */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    #clearAllButton:hover {
+        background-color: #6b0000; /* Changed to darker red */
+    }
+
+    .footer {
+        text-align: center;
+        padding: 20px 0;
+        font-size: 14px;
+        color: white; /* Changed to dark red */
+        background-color: #6b0000;
+    }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">
+    <a href="https://www.pup.edu.ph/">
+    <img src="pup_logo.png" alt="PUP Logo" width="40">
+</a>
+  </div>
+  <div class="title">
+    <h3>Polytechnic University of the Philippines</h3>
+  </div>
+  <a href="#">Home</a>
+  <a href="#" onclick="confirmLogout()">Log Out</a>
+</div>
+
+<h2>PUP Fund Management Office/Cashiers Department Form</h2>
+<div class="content">
+    <form id="paymentForm" action="https://script.google.com/macros/s/AKfycbwGCwtdIrzEj08bgp3c7yYIRJe3eAP3l4_iliiqT2lUAZ3kPNOgBFBMepKd9KZ3oOyrCw/exec" method="post">
+        <label for="appointmentNo">Appointment No.: *</label><br>
+        <input type="number" id="appointmentNo" name="appointmentNo" required><br>
+
+        <label for="name">Name: *</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="studentNumber">Student Number: *</label><br>
+        <input type="text" id="studentNumber" name="studentNumber" required><br>
+
+        <label for="date">Date: *</label><br>
+        <input type="date" id="date" name="date" required><br>
+
+        <label for="college">College: *</label><br>
+        <select id="college" name="college" required>
+            <option value="">Select College</option>
+            <option value="College of Accountancy and Finance">College of Accountancy and Finance</option>
+            <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+            <option value="College of Arts and Letters">College of Arts and Letters</option>
+            <option value="College of Business">College of Business</option>
+            <option value="College of Communication">College of Communication</option>
+            <option value="College of Computer and Information Sciences">College of Computer and Information Sciences</option>
+            <option value="College of Criminal Justice Education">College of Criminal Justice Education</option>
+            <option value="College of Education">College of Education</option>
+            <option value="College of Engineering">College of Engineering</option>
+            <option value="College of Human Kinetics">College of Human Kinetics</option>
+            <option value="College of Industrial Technology">College of Industrial Technology</option>
+            <option value="College of Law">College of Law</option>
+            <option value="College of Nursing">College of Nursing</option>
+            <option value="College of Political Science and Public Administration">College of Political Science and Public Administration</option>
+            <option value="College of Science">College of Science</option>
+            <option value="College of Social Sciences and Development">College of Social Sciences and Development</option>
+            <option value="College of Tourism, Hospitality, and Transportation Management">College of Tourism, Hospitality, and Transportation Management</option>
+            <option value="Institute of Technology
+">Institute of Technology
+</option>
+            <option value="Open University">Open University</option>
+        </select><br>
+
+        <label for="program">Program: *</label><br>
+        <select id="program" name="program" required>
+            <option value="">Select Program</option>
+            <option value="BAC">Accountancy (BAC)</option>
+<option value="BAPR">Advertising and Public Relations (BAPR)</option>
+<option value="BAM">Agribusiness Management (BAM)</option>
+<option value="AGENGR">Agricultural Engineering (AGENGR)</option>
+<option value="AGTECH">Agricultural Technology (AGTECH)</option>
+<option value="AGROFOR">Agroforestry (AGROFOR)</option>
+<option value="ANIM">Animation (ANIM)</option>
+<option value="AMATH">Applied Mathematics (AMATH)</option>
+<option value="ASTAT">Applied Statistics (ASTAT)</option>
+<option value="ARCH">Architecture (ARCH)</option>
+<option value="AUTO TECH">Automotive Technology (AUTO TECH)</option>
+<option value="BOA">Bachelor in Office Administration (BOA)</option>
+<option value="BLIS">Bachelor of Library and Information Science (BLIS)</option>
+<option value="BPE">Bachelor of Physical Education (BPE)</option>
+<option value="BPE-SPE">Bachelor of Physical Education major in School PE (BPE-SPE)</option>
+<option value="BPE-SWM">Bachelor of Physical Education major in Sports and Wellness Management (BPE-SWM)</option>
+<option value="BSAMATH">Bachelor of Science in Applied Mathematics (BSAMATH)</option>
+<option value="BSASTAT">Bachelor of Science in Applied Statistics (BSASTAT)</option>
+<option value="BSBIO">Bachelor of Science in Biology (BSBIO)</option>
+<option value="BSBA">Bachelor of Science in Business Administration (BSBA)</option>
+<option value="BSBA-MM">Bachelor of Science in Business Administration major in Marketing Management (BSBA-MM)</option>
+<option value="BSBA-OM">Bachelor of Science in Business Administration major in Operations Management (BSBA-OM)</option>
+<option value="BSBA-FM">Bachelor of Science in Business Administration major in Financial Management (BSBA-FM)</option>
+<option value="BSBA-HRDM">Bachelor of Science in Business Administration major in Human Resource Development Management (BSBA-HRDM)</option>
+<option value="BSBA-MA">Bachelor of Science in Business Administration major in Management Accounting (BSBA-MA)</option>
+<option value="BSBA-MGT">Bachelor of Science in Business Administration major in Management (BSBA-MGT)</option>
+<option value="BSBA-EM">Bachelor of Science in Business Administration major in Entrepreneurial Marketing (BSBA-EM)</option>
+<option value="BSBA-BE">Bachelor of Science in Business Administration major in Business Economics (BSBA-BE)</option>
+<option value="BSCHE">Bachelor of Science in Chemical Engineering (BSCHE)</option>
+<option value="BSCH">Bachelor of Science in Chemistry (BSCH)</option>
+<option value="BSCE">Bachelor of Science in Civil Engineering (BSCE)</option>
+<option value="BSCE-SE">Bachelor of Science in Civil Engineering major in Structural Engineering (BSCE-SE)</option>
+<option value="BSCE-TE">Bachelor of Science in Civil Engineering major in Transportation Engineering (BSCE-TE)</option>
+<option value="BSCE-WREE">Bachelor of Science in Civil Engineering major in Water Resources and Environmental Engineering (BSCE-WREE)</option>
+<option value="BSCT">Bachelor of Science in Clothing Technology (BSCT)</option>
+<option value="BSCOE">Bachelor of Science in Computer Engineering (BSCOE)</option>
+<option value="BSCS">Bachelor of Science in Computer Science (BSCS)</option>
+<option value="BSCS-DS">Bachelor of Science in Computer Science with Specialization in Data Science (BSCS-DS)</option>
+<option value="BSCS-NIS">Bachelor of Science in Computer Science with Specialization in Network and Information Security (BSCS-NIS)</option>
+<option value="BSCS-SE">Bachelor of Science in Computer Science with Specialization in Software Engineering (BSCS-SE)</option>
+<option value="BSConE">Bachelor of Science in Construction Engineering (BSConE)</option>
+<option value="BSCE">Bachelor of Science in Cooperative Education (BSCE)</option>
+<option value="BSEE">Bachelor of Science in Electrical Engineering (BSEE)</option>
+<option value="BSECE">Bachelor of Science in Electronics Engineering (BSECE)</option>
+<option value="BSES">Bachelor of Science in Environmental Science (BSES)</option>
+<option value="BSENT">Bachelor of Science in Entrepreneurship (BSENT)</option>
+<option value="BSF">Bachelor of Science in Fisheries (BSF)</option>
+<option value="BSFT">Bachelor of Science in Food Technology (BSFT)</option>
+<option value="BSFOR">Bachelor of Science in Forestry (BSFOR)</option>
+<option value="BSGE">Bachelor of Science in Geodetic Engineering (BSGE)</option>
+<option value="BSGEO">Bachelor of Science in Geology (BSGEO)</option>
+<option value="BSHRM">Bachelor of Science in Hotel and Restaurant Management (BSHRM)</option>
+<option value="BSIE">Bachelor of Science in Industrial Engineering (BSIE)</option>
+<option value="BSIT">Bachelor of Science in Information Technology (BSIT)</option>
+<option value="BSIT-GD">Bachelor of Science in Information Technology major in Game Development (BSIT-GD)</option>
+<option value="BSIT-MAS">Bachelor of Science in Information Technology major in Multimedia Arts and Sciences (BSIT-MAS)</option>
+<option value="BSID">Bachelor of Science in Interior Design (BSID)</option>
+<option value="BSIHM">Bachelor of Science in International Hospitality Management (BSIHM)</option>
+<option value="BSLA">Bachelor of Science in Landscape Architecture (BSLA)</option>
+<option value="BSMGT">Bachelor of Science in Management (BSMGT)</option>
+<option value="BSMfgE">Bachelor of Science in Manufacturing Engineering (BSMfgE)</option>
+<option value="BSMB">Bachelor of Science in Marine Biology (BSMB)</option>
+<option value="BSMarE">Bachelor of Science in Marine Engineering (BSMarE)</option>
+<option value="BSMM">Bachelor of Science in Marketing Management (BSMM)</option>
+<option value="BSMATH">Bachelor of Science in Mathematics (BSMATH)</option>
+<option value="BSME">Bachelor of Science in Mechanical Engineering (BSME)</option>
+<option value="BSMLS">Bachelor of Science in Medical Laboratory Science (BSMLS)</option>
+<option value="BSMinE">Bachelor of Science in Mining Engineering (BSMinE)</option>
+<option value="BSND">Bachelor of Science in Nutrition and Dietetics (BSND)</option>
+<option value="BSOA">Bachelor of Science in Office Administration (BSOA)</option>
+<option value="BSPE">Bachelor of Science in Physical Education (BSPE)</option>
+<option value="BSPSYCH">Bachelor of Science in Psychology (BSPSYCH)</option>
+<option value="BSPA">Bachelor of Science in Public Administration (BSPA)</option>
+<option value="BSREM">Bachelor of Science in Real Estate Management (BSREM)</option>
+<option value="BSSW">Bachelor of Science in Social Work (BSSW)</option>
+<option value="BSSTAT">Bachelor of Science in Statistics (BSSTAT)</option>
+<option value="BSTM">Bachelor of Science in Tourism Management (BSTM)</option>
+<option value="BSTM">Bachelor of Science in Travel Management (BSTM)</option>
+<option value="BSURP">Bachelor of Science in Urban and Regional Planning (BSURP)</option>
+<option value="BSE-ENGLISH">Bachelor of Secondary Education major in English (BSE-ENGLISH)</option>
+<option value="BSE-FIL">Bachelor of Secondary Education major in Filipino (BSE-FIL)</option>
+<option value="BSE-MAPEH">Bachelor of Secondary Education major in MAPEH (BSE-MAPEH)</option>
+<option value="BSE-MATH">Bachelor of Secondary Education major in Mathematics (BSE-MATH)</option>
+<option value="BSE-MAPEH">Bachelor of Secondary Education major in Music, Arts, Physical Education and Health (MAPEH) (BSE-MAPEH)</option>
+<option value="BSE-PHYS SCI">Bachelor of Secondary Education major in Physical Science (BSE-PHYS SCI)</option>
+<option value="BSE-SOC STUD">Bachelor of Secondary Education major in Social Studies (BSE-SOC STUD)</option>
+<option value="BTTE">Bachelor of Technical Teacher Education (BTTE)</option>
+<option value="BIOCHEM">Biochemistry (BIOCHEM)</option>
+<option value="BCAST">Broadcasting (BCAST)</option>
+<option value="BT">Building Technology (BT)</option>
+<option value="BAA">Business Administration and Accountancy (BAA)</option>
+<option value="CERENG">Ceramic Engineering (CERENG)</option>
+<option value="CHE">Chemical Engineering (CHE)</option>
+<option value="CHEM">Chemistry (CHEM)</option>
+<option value="CE">Civil Engineering (CE)</option>
+<option value="CET">Civil Engineering Technology (CET)</option>
+<option value="CT">Clothing Technology (CT)</option>
+<option value="COMRES">Communication Research (COMRES)</option>
+<option value="CD">Community Development (CD)</option>
+<option value="COE">Computer Engineering (COE)</option>
+<option value="CS">Computer Science (CS)</option>
+<option value="CS">Construction Engineering and Management (CS)</option>
+<option value="CD">Cooperative Development (CD)</option>
+<option value="CM">Cooperative Management (CM)</option>
+<option value="CORCOM">Corporate Communication (CORCOM)</option>
+<option value="CRIM">Criminology (CRIM)</option>
+<option value="CA">Customs Administration (CA)</option>
+<option value="DAIRY TECH">Dairy Technology (DAIRY TECH)</option>
+<option value="DMD">Dental Medicine (DMD)</option>
+<option value="DT">Drafting Technology (DT)</option>
+<option value="ECE">Early Childhood Education (ECE)</option>
+<option value="ECON LAW">Economic Laws (ECON LAW)</option>
+<option value="ECON">Economics (ECON)</option>
+<option value="EDUC">Education (EDUC)</option>
+<option value="ED ADM">Educational Administration (ED ADM)</option>
+<option value="ED MGT">Educational Management (ED MGT)</option>
+<option value="EE">Electrical Engineering (EE)</option>
+<option value="ET">Electrical Technology (ET)</option>
+<option value="ECE">Electronics and Communications Engineering (ECE)</option>
+<option value="ECE">Electronics Engineering (ECE)</option>
+<option value="ENGR">Energy Engineering (ENGR)</option>
+<option value="ENG MGT">Engineering Management (ENG MGT)</option>
+<option value="ENGL">English (ENGL)</option>
+<option value="ENSE">Environmental and Sanitary Engineering (ENSE)</option>
+<option value="ENVE">Environmental Engineering (ENVE)</option>
+<option value="ENMGT">Environmental Management (ENMGT)</option>
+<option value="EXT EDU">Extension Education (EXT EDU)</option>
+<option value="FASHION">Fashion Design (FASHION)</option>
+<option value="FILM">Film and Audio-Visual Communication (FILM)</option>
+<option value="FIN">Finance (FIN)</option>
+<option value="FMGT">Financial Management (FMGT)</option>
+<option value="FINE ARTS">Fine Arts (FINE ARTS)</option>
+<option value="FISHERY">Fisheries (FISHERY)</option>
+<option value="FOOD TECH">Food Technology (FOOD TECH)</option>
+<option value="FS">Foreign Service (FS)</option>
+<option value="FS">Forensic Science (FS)</option>
+<option value="FORESTRY">Forestry (FORESTRY)</option>
+<option value="FRENCH">French (FRENCH)</option>
+<option value="FURNITURE">Furniture Technology (FURNITURE)</option>
+<option value="GE">Geodetic Engineering (GE)</option>
+<option value="GEO">Geography (GEO)</option>
+<option value="GEOL">Geology (GEOL)</option>
+<option value="GC">Guidance and Counseling (GC)</option>
+<option value="H ED">Health Education (H ED)</option>
+<option value="HE">Higher Education (HE)</option>
+<option value="HISTORY">History (HISTORY)</option>
+<option value="HOME EC">Home Economics (HOME EC)</option>
+<option value="H ECON">Home Economics and Livelihood Education (H ECON)</option>
+<option value="HRM">Hotel and Restaurant Management (HRM)</option>
+<option value="HRDM">Human Resource Development Management (HRDM)</option>
+<option value="HRM">Human Resource Management (HRM)</option>
+<option value="HUMANITIES">Humanities (HUMANITIES)</option>
+<option value="IE">Industrial Engineering (IE)</option>
+<option value="IME">Industrial Management Engineering (IME)</option>
+<option value="IND PSYCH">Industrial Psychology (IND PSYCH)</option>
+<option value="ICT">Information and Communication Technology (ICT)</option>
+<option value="IS">Information Systems (IS)</option>
+<option value="IT">Information Technology (IT)</option>
+<option value="INST">Instrumentation and Control Engineering (INST)</option>
+<option value="IS">International Studies (IS)</option>
+<option value="JOURNALISM">Journalism (JOURNALISM)</option>
+<option value="KOREAN">Korean (KOREAN)</option>
+<option value="LA">Landscape Architecture (LA)</option>
+<option value="LAW">Law (LAW)</option>
+<option value="LIS">Library and Information Science (LIS)</option>
+<option value="LING">Linguistics (LING)</option>
+<option value="LIT">Literature (LIT)</option>
+<option value="MDE">Machine Design Engineering (MDE)</option>
+<option value="MGT">Management (MGT)</option>
+<option value="MGT">Management Engineering (MGT)</option>
+<option value="MFGE">Manufacturing Engineering (MFGE)</option>
+<option value="MBIO">Marine  Biology (MBIO)</option>
+<option value="MARE">Marine Engineering (MARE)</option>
+<option value="MKTG">Marketing (MKTG)</option>
+<option value="MMGT">Marketing Management (MMGT)</option>
+<option value="MASSCOM">Mass Communication (MASSCOM)</option>
+<option value="MATH">Mathematics (MATH)</option>
+<option value="ME">Mechanical Engineering (ME)</option>
+<option value="MT">Mechanical Technology (MT)</option>
+<option value="MEDIA">Media Studies (MEDIA)</option>
+<option value="MEDTECH">Medical Technology (MEDTECH)</option>
+<option value="MED">Medicine (MED)</option>
+<option value="MERCH">Merchandising (MERCH)</option>
+<option value="METE">Metallurgical Engineering (METE)</option>
+<option value="MICRO">Microbiology (MICRO)</option>
+<option value="MINE">Mining Engineering (MINE)</option>
+<option value="MULTIMED">Multimedia Arts (MULTIMED)</option>
+<option value="MUSIC">Music (MUSIC)</option>
+<option value="MUSED">Music Education (MUSED)</option>
+<option value="NS">Natural Science (NS)</option>
+<option value="NA">Naval Architecture (NA)</option>
+<option value="ND">Nutrition and Dietetics (ND)</option>
+<option value="OT">Occupational Therapy (OT)</option>
+<option value="OM">Office Management (OM)</option>
+<option value="OM">Operations Management (OM)</option>
+<option value="OPT">Optometry (OPT)</option>
+<option value="PLS">Paralegal Studies (PLS)</option>
+<option value="PHARM">Pharmacy (PHARM)</option>
+<option value="PHILO">Philosophy (PHILO)</option>
+<option value="PE">Physical Education (PE)</option>
+<option value="PHY">Physics (PHY)</option>
+<option value="POL SCI">Political Science (POL SCI)</option>
+<option value="LAW">Pre-Law (LAW)</option>
+<option value="PROD">Production Engineering (PROD)</option>
+<option value="PSYCH">Psychology (PSYCH)</option>
+<option value="PA">Public Administration (PA)</option>
+<option value="PH">Public Health (PH)</option>
+<option value="PMGT">Public Management (PMGT)</option>
+<option value="PR">Public Relations (PR)</option>
+<option value="QUALITY">Quality (QUALITY)</option>
+
+
+
+        </select><br>
+
+        <label for="yearSection">Year - Section: *</label><br>
+        <input type="text" id="yearSection" name="yearSection" placeholder="Example: 1-1" required><br>
+
+        <button type="button" class="btn" onclick="addDocument()" style="margin-bottom: 10px;">Click to Add Document Needed</button>
+
+        <div id="documentInputs"></div>
+        <div class="tuition-fees-box">
+            <label class="tuition-fees-label">If Paying for Tuition Fees:</label><br>
+            <div class="tuition-fees-options">
+                <input type="checkbox" id="partialPayment" name="tuition-fees-options" value="partial" class="tuition-fees-checkbox">
+                <label for="partialPayment" class="payment-option">Partial</label>
+                <input type="checkbox" id="fullPayment" name="tuition-fees-options" value="full" class="tuition-fees-checkbox">
+                <label for="fullPayment" class="payment-option">Full Payment</label>
+                <input type="checkbox" id="balance" name="tuition-fees-options" value="balance" class="tuition-fees-checkbox">
+                <label for="balance" class="payment-option">Balance</label>
+            </div>
+        </div>
+
+        <label for="paymentType">Payment Type: *</label><br>
+        <select id="paymentType" name="paymentType" required>
+            <option value="">Select Payment Type</option>
+            <option value="Cash">Cash</option>
+            <option value="Online Payment">Online Payment (Gcash, Maya, and etc.)</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Credit Card">Credit Card</option>
+        </select><br>
+
+        <label for="schoolYear">School Year: *</label><br>
+        <input type="text" id="schoolYear" name="schoolYear" placeholder="Example: 2023-2024" required><br>
+
+        <label for="semester">Semester: *</label><br>
+        <select id="semester" name="semester" required>
+            <option value="">Select Semester</option>
+            <option value="1st">1st Semester</option>
+            <option value="2nd">2nd Semester</option>
+        </select><br>
+
+        <label for="amount">Amount: *</label><br>
+        <input type="text" id="amount" name="amount" placeholder="&#8369;0.00" required><br>
+
+        <input type="submit" value="Submit">
+        <button type="button" id="clearAllButton" onclick="clearAllFields()">Clear All</button>
+    </form>
+</div>
+
+<div id="receipt">
+    <h3>Receipt</h3>
+    <p><strong>Appointment No.:</strong> <span id="receiptAppointmentNo"></span></p>
+    <p><strong>Name:</strong> <span id="receiptName"></span></p>
+    <p><strong>Student Number:</strong> <span id="receiptStudentNumber"></span></p>
+    <p><strong>Date:</strong> <span id="receiptDate"></span></p>
+    <p><strong>College:</strong> <span id="receiptCollege"></span></p>
+    <p><strong>Program:</strong> <span id="receiptProgram"></span></p>
+    <p><strong>Year - Section:</strong> <span id="receiptYearSection"></span></p>
+    <p><strong>Requested Documents:</strong> <span id="receiptDocuments"></span></p>
+    <p><strong>If Paying for Tuition Fees:</strong> <span id="receiptTuitionFees"></span></p>
+    <p><strong>Payment Type:</strong> <span id="receiptPaymentType"></span></p>
+    <p><strong>School Year:</strong> <span id="receiptSchoolYear"></span></p>
+    <p><strong>Semester:</strong> <span id="receiptSemester"></span></p>
+    <p><strong>Amount:</strong> <span id="receiptAmount"></span></p>
+    <button id="exitButton" onclick="hideReceipt()">Exit</button>
+</div>
+
+<div class="footer">
+    PUP Fund Management Office/Cashiers Department Form @ 2024
+</div>
+
+<script>
+    function addDocument() {
+        var documentInputs = document.getElementById("documentInputs");
+        var newDocumentInput = document.createElement("div");
+        newDocumentInput.className = "form-row";
+        newDocumentInput.innerHTML = `
+            <div class="form-column">
+                <select name="documentName[]" required>
+                    <option value="Select Document">Select Document</option>
+                    <option value="REPLACEMENT OF ID FIRST OFFENSE ₱75.00">REPLACEMENT OF ID FIRST OFFENSE (₱75.00, one copy only)</option>
+                    <option value="REPLACEMENT OF ID SECOND OFFENSE ₱100.00">REPLACEMENT OF ID SECOND OFFENSE (₱100.00, one copy only)</option>
+                    <option value="REPLACEMENT OF ID THIRD OFFENSE ₱125.00">REPLACEMENT OF ID THIRD OFFENSE (₱125.00, one copy only)</option>
+                    <option value="DIPLOMA FEE ₱100.00">DIPLOMA FEE (₱100.00, one copy only)</option>
+                    <option value="GRADUATION FEE ₱500.00">GRADUATION FEE (Open University, Graduate School, Non SIS Students) (₱500.00, one copy only)</option>
+                    <option value="APPLICATION FOR GRADUATION ₱300.00">APPLICATION FOR GRADUATION (Open University, Graduate School, Non SIS Students) (₱300.00, one copy only)</option>
+                    <option value="ENTRANCE EXAM ₱500.00">ENTRANCE EXAM (PUPCET, GSEE, OUSEE, CLEE) (₱500.00, one copy only)</option>
+                    <option value="CERTIFICATION OF GRADES ₱50.00">CERTIFICATION OF GRADES (₱50.00, one copy only)</option>
+                    <option value="GOOD MORAL CHARACTER ₱50.00">GOOD MORAL CHARACTER (₱50.00, one copy only)</option>
+                    <option value="CERTIFICATION AUTHENTICATION ₱150.00">CERTIFICATION AUTHENTICATION (Per Document) (₱150.00, one copy only)</option>
+                    <option value="CERTIFICATION OF LADDERIZED GRADES ₱100.00">CERTIFICATION OF LADDERIZED GRADES (₱100.00, one copy only)</option>
+                    <option value="STATEMENT OF ACCOUNT ₱100.00">STATEMENT OF ACCOUNT (₱100.00, one copy only)</option>
+                    <option value="INFORMATIVE COPY OF GRADES ₱50.00">INFORMATIVE COPY OF GRADES (₱50.00, one copy only)</option>
+                    <option value="DETAILED DESCRIPTION OF SUBJECTS ₱100.00">DETAILED DESCRIPTION OF SUBJECTS (Per Subject) (₱100.00, one copy only)</option>
+                    <option value="HONORABLE DISMISSAL ₱100.00">HONORABLE DISMISSAL (₱100.00, one copy only)</option>
+                    <option value="TRANSCRIPT OF RECORDS GRADUATE NON ENGINEERING COURSE ₱300.00">TRANSCRIPT OF RECORDS - GRADUATE (Non Engineering Course) (₱300.00, one copy only)</option>
+                    <option value="TRANSCRIPT OF RECORDS GRADUATE ENGINEERING COURSE ₱500.00">TRANSCRIPT OF RECORDS - GRADUATE (Engineering Course) (₱500.00, one copy only)</option>
+                    <option value="TRANSCRIPT OF RECORDS PER PAGE ₱10.00">TRANSCRIPT OF RECORDS (Per Page) (₱10.00, one copy only)</option>
+                    <option value="RETRIEVAL FEE ₱100.00">RETRIEVAL FEE (₱100.00, one copy only)</option>
+                    <option value="COMPLETION FEE PER SUBJECT ₱30.00">COMPLETION FEE (Per Subject) (₱30.00, one copy only)</option>
+                    <option value="ADMISSION FEE FOR TRANSFER STUDENTS FROM PRIVATE SCHOOL ₱500.00">ADMISSION FEE FOR TRANSFER STUDENTS (From Private School) (₱500.00, one copy only)</option>
+                    <option value="ADMISSION FEE FOR TRANSFER STUDENTS FROM SUCs ₱300.00">ADMISSION FEE FOR TRANSFER STUDENTS (From SUCs) (₱300.00, one copy only)</option>
+                    <option value="PSYCHOLOGICAL EXAMINATION FEE STUDENTS ₱100.00">PSYCHOLOGICAL EXAMINATION FEE - STUDENTS (₱100.00, one copy only)</option>
+                    <option value="PSYCHOLOGICAL EXAMINATION FEE ADMINISTRATIVE EMPLOYEE ₱75.00">PSYCHOLOGICAL EXAMINATION FEE - ADMINISTRATIVE EMPLOYEE (₱75.00, one copy only)</option>
+                    <option value="PSYCHOLOGICAL EXAMINATION FEE FACULTY ₱75.00">PSYCHOLOGICAL EXAMINATION FEE - FACULTY (₱75.00, one copy only)</option>
+                    <option value="APPLICATION FOR COMPREHENSIVE EXAM ₱1,500.00">APPLICATION FOR COMPREHENSIVE EXAM (₱1,500.00, one copy only)</option>
+                    <option value="COMPREHENSIVE EXAM GRADUATE SCHOOL DOCTORAL ₱1,500.00">COMPREHENSIVE EXAM - GRADUATE SCHOOL (Doctoral) (₱1,500.00, one copy only)</option>
+                    <option value="COMPREHENSIVE EXAM GRADUATE SCHOOL MASTERAL ₱1,300.00">COMPREHENSIVE EXAM - GRADUATE SCHOOL (Masteral) (₱1,300.00, one copy only)</option>
+                    <option value="COMPREHENSIVE EXAM OPEN UNIVERSITY MANUAL ₱1,300.00">COMPREHENSIVE EXAM - OPEN UNIVERSITY (Manual) (₱1,300.00, one copy only)</option>
+                    <option value="COMPREHENSIVE EXAM OPEN UNIVERSITY COMPUTERIZED ₱1,500.00">COMPREHENSIVE EXAM - OPEN UNIVERSITY (Computerized) (₱1,500.00, one copy only)</option>
+                    <option value="READMISSION FEE UNDERGRADUATE ₱150.00">READMISSION FEE - UNDERGRADUATE (₱150.00, one copy only)</option>
+                    <option value="READMISSION FEE GRADUATE SCHOOL OPEN UNIVERSITY ₱200.00">READMISSION FEE - GRADUATE SCHOOL, OPEN UNIVERSITY (₱200.00, one copy only)</option>
+                    <option value="CORRECTION CHANGE OF NAME ₱150.00">CORRECTION/CHANGE OF NAME (₱150.00, one copy only)</option>
+
+                </select>
+            </div>
+            <div class="form-column">
+                <input type="number" name="documentQty[]" min="1" placeholder="Quantity" required>
+            </div>
+        `;
+        documentInputs.appendChild(newDocumentInput);
+    }
+
+    function showReceipt() {
+        var receipt = document.getElementById("receipt");
+        var appointmentNo = document.getElementById("appointmentNo").value;
+        var name = document.getElementById("name").value;
+        var studentNumber = document.getElementById("studentNumber").value;
+        var date = document.getElementById("date").value;
+        var college = document.getElementById("college").value;
+        var program = document.getElementById("program").value;
+        var yearSection = document.getElementById("yearSection").value;
+        var documents = [];
+        var documentNames = document.querySelectorAll("select[name='documentName[]']");
+        var documentQtys = document.querySelectorAll("input[name='documentQty[]']");
+        var tuitionFees = "";
+        var partialPayment = document.getElementById("partialPayment").checked;
+        var fullPayment = document.getElementById("fullPayment").checked;
+        var balance = document.getElementById("balance").checked;
+        var paymentType = document.getElementById("paymentType").value;
+        var schoolYear = document.getElementById("schoolYear").value;
+        var semester = document.getElementById("semester").value;
+        var amount = document.getElementById("amount").value;
+
+        for (var i = 0; i < documentNames.length; i++) {
+            var docName = documentNames[i].value;
+            var docQty = documentQtys[i].value;
+            if (docName && docQty) {
+                documents.push(docName + " x" + docQty);
+            }
+        }
+
+        if (partialPayment) {
+            tuitionFees += "Partial, ";
+        }
+        if (fullPayment) {
+            tuitionFees += "Full Payment, ";
+        }
+        if (balance) {
+            tuitionFees += "Balance";
+        }
+
+        receipt.innerHTML = `
+            <h3>Receipt</h3>
+            <p><strong>Appointment No.:</strong> ${appointmentNo}</p>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Student Number:</strong> ${studentNumber}</p>
+            <p><strong>Date:</strong> ${date}</p>
+            <p><strong>College:</strong> ${college}</p>
+            <p><strong>Program:</strong> ${program}</p>
+            <p><strong>Year - Section:</strong> ${yearSection}</p>
+            <p><strong>Requested Documents:</strong> ${documents.join(" ")}</p>
+            <p><strong>If Paying for Tuition Fees:</strong> ${tuitionFees}</p>
+            <p><strong>Payment Type:</strong> ${paymentType}</p>
+            <p><strong>School Year:</strong> ${schoolYear}</p>
+            <p><strong>Semester:</strong> ${semester}</p>
+            <p><strong>Amount:</strong> ${amount}</p>
+            <button id="exitButton" onclick="hideReceipt()">Exit</button>
+        `;
+        receipt.style.display = "block";
+        return false; // Prevent form submission
+    }
+
+    function hideReceipt() {
+        document.getElementById("receipt").style.display = "none";
+    }
+
+    function clearAllFields() {
+        document.getElementById("paymentForm").reset();
+        var documentInputs = document.getElementById("documentInputs");
+        documentInputs.innerHTML = ""; // Clear added document inputs
+    }
+
+    function confirmLogout() {
+        const userConfirmed = confirm("Are you sure you want to log out?");
+        if (userConfirmed) {
+            window.location.href = 'FF1.html';
+        }
+    }
+</script>
+</body>
+</html>

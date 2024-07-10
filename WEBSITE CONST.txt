@@ -1,0 +1,27 @@
+Create a website with this instruction:
+
+A.In the first page the user will see a page named "PUP Attrition Rate" then there is a "Get Started" button.
+
+B. The user should see the data privacy act before she can continue to access the website. 
+
+C. The User should enter his/her name but can also be anonymous,age, student number, year and section, semester, school year and the user should enter what college, program, year and section with drop down approach in the program. 
+
+D. The User will be ask to ask to choose between two button the first button will be Transfer to another university and the other button is Drop Out.
+
+E. When the User choose the transfer to another university there will be checkboxes that the user will choose between check boxes if this factors affected to his reasons why he/she will transfer: 
+1. Far from the university
+2. Getting Low Grades
+3. Shifting to another course that is not available to the current university
+4. Social environment. Then when the User choose the drop out he user will choose between check boxes if this factors affected to his reasons why he/she will drop out: 
+1. Overloading/ Underloading
+2. Employment
+3. Financial
+4. Acadameic Challenges
+5. Family Obligations
+6. Health Issues
+7. Lack of support system
+8. Disenggagement or lack of interest
+9. Instiutional Factors
+
+F. The result of this will be in bar graph. Their will be a summary of the data the user input.
+
